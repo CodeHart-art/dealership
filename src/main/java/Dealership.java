@@ -15,21 +15,89 @@ public class Dealership {
     }
 
 
+    public ArrayList<Vehicle> getVehiclesByPrice(double min,double max) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-    public ArrayList<Vehicle> getVehiclesByPrice(){return null;}
-    public ArrayList<Vehicle> getVehiclesByMakeModel(){return null;}
-    public ArrayList<Vehicle> getVehiclesByYear(){return null;}
-    public ArrayList<Vehicle> getVehiclesByColor(){return null;}
-    public ArrayList<Vehicle> getVehiclesByMileage(){return null;}
-    public ArrayList<Vehicle> getVehiclesByType(){return null;}
-    public ArrayList<Vehicle> getAllVehicles(){return null;}
-    public void addVehicle(Vehicle vehicle){
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice() >= min && vehicle.getPrice() <= max)
+                vehicles.add(vehicle);
+        }
 
-        inventory.add(vehicle);
+        return vehicles;
     }
-    public void removeVehicle(){}
 
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make,String model) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
 
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(make) || vehicle.getModel().equalsIgnoreCase(model))
+                vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByYear(int min,int max) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max)
+                vehicles.add(vehicle);
+        }
+
+        return vehicles;    }
+
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(color))
+                vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByMileage(int min,int max) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max)
+                vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType))
+                vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
+    public ArrayList<Vehicle> getAllVehicles() {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+        inventory.remove(vehicle);
+    }
 
 
 }
